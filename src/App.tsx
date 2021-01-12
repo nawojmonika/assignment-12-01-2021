@@ -1,23 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import SearchBar from "./components/search-bar/search-bar";
+import {useState} from "react";
+import CompanyList from "./components/company-list/companyList";
 
 function App() {
+    const [searched, setSearched] = useState('');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchBar searched={searched} setSearched={setSearched}/>
+      <CompanyList searched={searched}/>
     </div>
   );
 }
